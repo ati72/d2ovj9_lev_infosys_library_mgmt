@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { LibraryInventoryItem } from './LibraryInventoryItem';
 
 @Entity()
 export class Member {
@@ -11,12 +12,15 @@ export class Member {
   @Column({ type: 'text' })
   lastName: string;
 
-  @Column({ type: 'number' })
+  @Column({ type: 'int' })
   phoneNumber: number;
 
   @Column({ type: 'text' })
   location: string;
 
-  @Column({ type: 'number' })
+  @Column({ type: 'int' })
   idCardNumber: number;
+
+  @OneToMany((type) => LibraryInventoryItem, (item) => item.rentedBy)
+  rentedItems: LibraryInventoryItem[];
 }

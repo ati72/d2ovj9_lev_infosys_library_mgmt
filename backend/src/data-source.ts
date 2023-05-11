@@ -1,16 +1,18 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import { LibraryInventoryItem } from './entity/LibraryInventoryItem';
+import { Member } from './entity/Member';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: 'localhost',
-  port: 5432,
+  port: 3306,
   username: 'root',
   password: 'root',
   database: 'd2ovj9_infosys_library_mgmt',
   synchronize: true,
-  logging: false,
-  entities: ['src/entity/**/*.ts'],
-  migrations: ['src/migration/**/*.ts'],
-  subscribers: ['src/subscriber/**/*.ts'],
+  logging: true,
+  entities: [LibraryInventoryItem, Member],
+  migrations: [],
+  subscribers: [],
 });

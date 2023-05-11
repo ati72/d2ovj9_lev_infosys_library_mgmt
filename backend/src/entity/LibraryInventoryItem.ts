@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Member } from './Member';
 
 @Entity()
 export class LibraryInventoryItem {
@@ -19,4 +20,9 @@ export class LibraryInventoryItem {
 
   @Column({ type: 'text' })
   status: string;
+
+  @ManyToOne((type) => Member, (member) => member.rentedItems)
+  rentedBy: Member;
 }
+
+//ts-node-dev index.ts
