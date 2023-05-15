@@ -8,10 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // material imports
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import { HeaderComponent } from './header/header.component';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
+import { MembersComponent } from './members/members.component';
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
+    MembersComponent,
+    BooksComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +33,9 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatMenuModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

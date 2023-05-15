@@ -1,0 +1,13 @@
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: thistle;
+}
+
+button {
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}

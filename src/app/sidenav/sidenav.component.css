@@ -1,0 +1,23 @@
+.logo {
+  text-align: center;
+}
+
+.mat-icon {
+  vertical-align: center;
+  margin-right: 1rem;
+}
+
+.sub-header {
+  vertical-align: center;
+  text-align: center;
+}
+
+.mat-divider {
+  border-top-width: 2px;
+  background-color: #fff;
+}
+
+/*doesn't work...*/
+mat-list-item {
+  color: #fff !important;
+}
