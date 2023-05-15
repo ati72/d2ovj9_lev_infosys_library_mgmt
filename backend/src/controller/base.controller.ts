@@ -36,7 +36,6 @@ export abstract class BaseController {
     try {
       const entity = this.repository.create(req.body as object);
       entity.id = null;
-      // why insert?
       const result = await this.repository.insert(entity);
       const inserted = await this.repository.findOneBy({
         id: result.raw.insertId,
