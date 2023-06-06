@@ -21,7 +21,7 @@ export class LibraryInventoryItem {
   @Column({ type: 'text' })
   status: string;
 
-  @ManyToOne((type) => Member, (member) => member.rentedItems, { eager: true })
+  @ManyToOne((type) => Member, (member) => member.rentedItems)
   rentedBy: Member;
 }
 
