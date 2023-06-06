@@ -17,7 +17,7 @@ export function getRoutes() {
   router.get('/members', memberController.getAll);
   router.get('/members/:id', memberController.getOne);
   router.post('/members', memberController.create);
-  router.put('/members', memberController.update);
+  router.put('/members/:id', memberController.update);
   router.delete('/members/:id', memberController.delete);
 
   return router;

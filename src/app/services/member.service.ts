@@ -11,4 +11,16 @@ export class MemberService {
   getAll() {
     return this.http.get<Member[]>('/api/members');
   }
+
+  save(member: Member) {
+    return this.http.post<Member>('/api/members', member);
+  }
+
+  update(member: any, id: number) {
+    return this.http.put<any>('/api/members/' + id, member);
+  }
+
+  delete(id: number) {
+    return this.http.delete<Member>('/api/members/' + id);
+  }
 }

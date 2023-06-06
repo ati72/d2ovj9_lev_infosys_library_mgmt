@@ -16,6 +16,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -23,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { MembersComponent } from './members/members.component';
 import { BooksComponent } from './books/books.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MembersComponent,
     BooksComponent,
+    MemberDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
