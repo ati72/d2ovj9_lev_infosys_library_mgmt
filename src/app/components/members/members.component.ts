@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Member } from '../models/Member';
-import { MemberService } from '../services/member.service';
+import { Member } from '../../models/Member';
+import { MemberService } from '../../services/member.service';
 import { MemberDialogComponent } from '../member-dialog/member-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 

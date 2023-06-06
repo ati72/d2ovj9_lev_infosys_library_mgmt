@@ -20,13 +20,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { HomeComponent } from './home/home.component';
-import { MembersComponent } from './members/members.component';
-import { BooksComponent } from './books/books.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { HomeComponent } from './components/home/home.component';
+import { MembersComponent } from './components/members/members.component';
+import { BooksComponent } from './components/books/books.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MemberDialogComponent } from './member-dialog/member-dialog.component';
+import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
 
 @NgModule({
   declarations: [
