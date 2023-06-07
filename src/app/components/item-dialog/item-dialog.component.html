@@ -1,1 +1,50 @@
-<p>item-dialog works!</p>
+<h1 mat-dialog-title>Add New Item</h1>
+
+<form [formGroup]="itemForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input formControlName="author" matInput placeholder="Placeholder" />
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput placeholder="Placeholder" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Media Type</mat-label>
+      <mat-select placeholder="Media Type" formControlName="mediaType">
+        <mat-option *ngFor="let type of mediaTypes" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date of Acquisition</mat-label>
+      <input
+        formControlName="dateOfAcquisition"
+        matInput
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select placeholder="Status" formControlName="status">
+        <mat-option value="Available"> Available </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+<div mat-dialog-actions [align]="'center'">
+  <button mat-raised-button color="primary" (click)="addItem()">
+    {{ actionButton }}
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+</div>
