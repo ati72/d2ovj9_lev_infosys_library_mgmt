@@ -11,7 +11,7 @@ export function getRoutes() {
   router.get('/items', libraryInventoryItemController.getAll);
   router.get('/items/:id', libraryInventoryItemController.getOne);
   router.post('/items', libraryInventoryItemController.create);
-  router.put('/items', libraryInventoryItemController.update);
+  router.put('/items/:id', libraryInventoryItemController.update);
   router.delete('/items/:id', libraryInventoryItemController.delete);
 
   router.get('/members', memberController.getAll);

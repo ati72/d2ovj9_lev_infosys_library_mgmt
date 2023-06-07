@@ -27,6 +27,7 @@ import { MembersComponent } from './components/members/members.component';
 import { BooksComponent } from './components/books/books.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
+import { ItemDialogComponent } from './components/item-dialog/item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MemberDialogComponent } from './components/member-dialog/member-dialog.
     MembersComponent,
     BooksComponent,
     MemberDialogComponent,
+    ItemDialogComponent,
   ],
   imports: [
     BrowserModule,
