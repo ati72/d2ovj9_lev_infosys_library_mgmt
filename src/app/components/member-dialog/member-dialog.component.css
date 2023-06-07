@@ -1,3 +1,11 @@
 mat-form-field {
   width: 100%;
 }
+
+/*másképp nem akarta elrejteni...*/
+.hidden-stuff {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}

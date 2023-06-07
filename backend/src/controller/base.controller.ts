@@ -51,7 +51,7 @@ export abstract class BaseController {
       // ez valamiért szar, mert nem update-el, hanem új id-vel újat hoz létre...
       const entity = this.repository.create(req.body as object);
       const entityToUpdate = await this.repository.findOneBy({
-        id: req.params.id,
+        id: entity.id,
       });
       if (!entityToUpdate) {
         return this.handleError(
@@ -61,6 +61,7 @@ export abstract class BaseController {
           'No entity found with id: ' + req.params.id
         );
       }
+      console.log(entity.id + 'HELLO');
       const result = await this.repository.save(entity);
       res.json(result);
     } catch (err) {

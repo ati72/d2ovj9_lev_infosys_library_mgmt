@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LibraryInventoryItem } from 'src/app/models/LibraryInventoryItem';
 import { InventoryService } from 'src/app/services/inventory.service';
 
@@ -19,11 +20,13 @@ export class ItemDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private inventoryService: InventoryService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogRef: MatDialogRef<ItemDialogComponent>
+    private dialogRef: MatDialogRef<ItemDialogComponent>,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.itemForm = this.formBuilder.group({
+      id: [''],
       author: ['', Validators.required],
       title: ['', Validators.required],
       mediaType: ['', Validators.required],
@@ -32,6 +35,7 @@ export class ItemDialogComponent implements OnInit {
     });
     if (this.editData) {
       this.actionButton = 'Update';
+      this.itemForm.controls['id'].setValue(this.editData.id);
       this.itemForm.controls['author'].setValue(this.editData.author);
       this.itemForm.controls['title'].setValue(this.editData.title);
       this.itemForm.controls['mediaType'].setValue(this.editData.mediaType);
@@ -45,11 +49,19 @@ export class ItemDialogComponent implements OnInit {
   addItem() {
     if (!this.editData) {
       if (this.itemForm.valid) {
+        this.itemForm.patchValue({
+          dateOfAcquisition: this.formatDate(
+            this.itemForm.get('dateOfAcquisition')?.value
+          ),
+        });
         this.inventoryService
           .save(this.itemForm.value as LibraryInventoryItem)
           .subscribe({
             next: (res) => {
-              alert('Item added');
+              this.snackBar.open('Item added', '', {
+                duration: 3000,
+                verticalPosition: 'bottom',
+              });
               this.itemForm.reset();
               this.dialogRef.close('save');
             },
@@ -59,18 +71,26 @@ export class ItemDialogComponent implements OnInit {
               alert('error while saving item');
             },
           });
-      } else {
-        this.updateItem();
       }
+    } else {
+      this.updateItem();
     }
   }
 
   updateItem() {
+    this.itemForm.patchValue({
+      dateOfAcquisition: this.formatDate(
+        this.itemForm.get('dateOfAcquisition')?.value
+      ),
+    });
     this.inventoryService
       .update(this.itemForm.value, this.editData.id)
       .subscribe({
         next: (res) => {
-          alert('Item Updated!');
+          this.snackBar.open('Item updated', '', {
+            duration: 3000,
+            verticalPosition: 'bottom',
+          });
           this.itemForm.reset();
           this.dialogRef.close('update');
         },
@@ -79,5 +99,18 @@ export class ItemDialogComponent implements OnInit {
           alert('error while updating member');
         },
       });
+  }
+
+  formatDate(date: Date): string {
+    if (isNaN(date.getTime())) {
+      return '';
+    } else {
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return (
+        year + '/' + ('00' + month).slice(-2) + '/' + ('00' + day).slice(-2)
+      );
+    }
   }
 }

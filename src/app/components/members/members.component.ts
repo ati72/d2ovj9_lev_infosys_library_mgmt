@@ -6,6 +6,7 @@ import { Member } from '../../models/Member';
 import { MemberService } from '../../services/member.service';
 import { MemberDialogComponent } from '../member-dialog/member-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-members',
@@ -30,7 +31,8 @@ export class MembersComponent implements OnInit {
 
   constructor(
     private memberService: MemberService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -82,7 +84,10 @@ export class MembersComponent implements OnInit {
   deleteMember(id: number) {
     this.memberService.delete(id).subscribe({
       next: (res) => {
-        alert('Member deleted.');
+        this.snackBar.open('Member deleted!', '', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+        });
         this.getAllMembers();
       },
       error: (err) => {

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LibraryInventoryItem } from 'src/app/models/LibraryInventoryItem';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-books',
@@ -31,7 +32,8 @@ export class BooksComponent implements OnInit {
 
   constructor(
     private inventoryService: InventoryService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -80,7 +82,10 @@ export class BooksComponent implements OnInit {
   deleteItem(id: number) {
     this.inventoryService.delete(id).subscribe({
       next: (res) => {
-        alert('item deleted');
+        this.snackBar.open('Item deleted', '', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+        });
         this.getAllItems();
       },
       error: (err) => {
