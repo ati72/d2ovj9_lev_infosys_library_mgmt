@@ -66,7 +66,13 @@
           <button mat-icon-button (click)="editMember(row)" color="primary">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn">
+
+          <button
+            mat-icon-button
+            (click)="deleteMember(row.id)"
+            color="warn"
+            *ngIf="row.rentedItems.length === 0"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>

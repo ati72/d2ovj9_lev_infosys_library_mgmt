@@ -65,9 +65,29 @@ export class MembersComponent implements OnInit {
   }
 
   editMember(row: any) {
-    this.dialog.open(MemberDialogComponent, {
-      width: '30%',
-      data: row,
+    this.dialog
+      .open(MemberDialogComponent, {
+        width: '30%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        // val a dialogRef.close-ból jön
+        if (val === 'update') {
+          this.getAllMembers();
+        }
+      });
+  }
+
+  deleteMember(id: number) {
+    this.memberService.delete(id).subscribe({
+      next: (res) => {
+        alert('Member deleted.');
+        this.getAllMembers();
+      },
+      error: (err) => {
+        alert('Error while deleting member');
+      },
     });
   }
 
