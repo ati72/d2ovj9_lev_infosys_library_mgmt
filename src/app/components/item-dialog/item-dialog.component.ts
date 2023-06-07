@@ -27,8 +27,15 @@ export class ItemDialogComponent implements OnInit {
   ngOnInit(): void {
     this.itemForm = this.formBuilder.group({
       id: [''],
-      author: ['', Validators.required],
-      title: ['', Validators.required],
+      author: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[a-zA-Z ]*'),
+        ],
+      ],
+      title: ['', [Validators.required, Validators.minLength(2)]],
       mediaType: ['', Validators.required],
       dateOfAcquisition: ['', Validators.required],
       status: ['', Validators.required],
@@ -71,9 +78,13 @@ export class ItemDialogComponent implements OnInit {
               alert('error while saving item');
             },
           });
+      } else {
+        this.itemForm.markAllAsTouched();
       }
     } else {
-      this.updateItem();
+      if (this.itemForm.valid) {
+        this.updateItem();
+      }
     }
   }
 
@@ -101,6 +112,7 @@ export class ItemDialogComponent implements OnInit {
       });
   }
 
+  // TODO: ez update-nél hibát dob, ha nem állítok új dátumot, vlaszeg, mert nem Date, amit át akarok alakítani valamiért
   formatDate(date: Date): string {
     if (isNaN(date.getTime())) {
       return '';

@@ -65,7 +65,12 @@
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-icon-button (click)="deleteItem(row.id)" color="warn">
+          <button
+            mat-icon-button
+            (click)="deleteItem(row.id)"
+            color="warn"
+            *ngIf="row.rentedBy?.id === null"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>

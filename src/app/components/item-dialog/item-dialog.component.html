@@ -5,18 +5,31 @@
     <mat-form-field appearance="outline" class="hidden-stuff">
       <mat-label>ID</mat-label>
       <input formControlName="id" matInput placeholder="Placeholder" />
-      <mat-hint>Hint</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Author</mat-label>
       <input formControlName="author" matInput placeholder="Placeholder" />
-      <mat-hint>Hint</mat-hint>
+      <mat-error *ngIf="itemForm.get('author')?.hasError('required')">
+        Author is required.
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('author')?.hasError('minlength')">
+        Author must be longer than 2 letters.
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('author')?.hasError('pattern')">
+        Author can only contain letters.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
       <input formControlName="title" matInput placeholder="Placeholder" />
+      <mat-error *ngIf="itemForm.get('title')?.hasError('required')">
+        Title is required.
+      </mat-error>
+      <mat-error *ngIf="itemForm.get('title')?.hasError('minlength')">
+        Title must be longer than 2 letters.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -26,6 +39,9 @@
           {{ type }}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="itemForm.get('mediaType')?.hasError('required')">
+        Media type is required.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -37,6 +53,11 @@
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error
+        *ngIf="itemForm.get('dateOfAcquisition')?.hasError('required')"
+      >
+        Date is required.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -44,6 +65,9 @@
       <mat-select placeholder="Status" formControlName="status">
         <mat-option value="Available"> Available </mat-option>
       </mat-select>
+      <mat-error *ngIf="itemForm.get('status')?.hasError('required')">
+        Status is required.
+      </mat-error>
     </mat-form-field>
   </div>
 </form>

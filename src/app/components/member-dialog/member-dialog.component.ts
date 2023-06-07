@@ -25,11 +25,32 @@ export class MemberDialogComponent implements OnInit {
   ngOnInit(): void {
     this.memberForm = this.formBuilder.group({
       id: [''],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      location: ['', Validators.required],
-      idCardNumber: ['', Validators.required],
+      firstName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[a-zA-Z ]*'),
+        ],
+      ],
+      lastName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[a-zA-Z ]*'),
+        ],
+      ],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      location: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.pattern('[a-zA-Z ]*'),
+        ],
+      ],
+      idCardNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     });
     if (this.editData) {
       this.actionButton = 'Update';
@@ -62,9 +83,13 @@ export class MemberDialogComponent implements OnInit {
             alert('Error while saving new member' + err);
           },
         });
+      } else {
+        this.memberForm.markAllAsTouched();
       }
     } else {
-      this.updateMember();
+      if (this.memberForm.valid) {
+        this.updateMember();
+      }
     }
   }
 

@@ -11,22 +11,54 @@
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
       <input formControlName="firstName" matInput placeholder="Placeholder" />
-      <mat-hint>Hint</mat-hint>
+      <mat-error *ngIf="memberForm.get('firstName')?.hasError('required')">
+        First Name is required.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('firstName')?.hasError('minlength')">
+        First Name has to be longer than 2 letters.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('firstName')?.hasError('pattern')">
+        First Name can only contain letters.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
       <input formControlName="lastName" matInput placeholder="Placeholder" />
+      <mat-error *ngIf="memberForm.get('lastName')?.hasError('required')">
+        Last Name is required.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('lastName')?.hasError('minlength')">
+        Last Name has to be longer than 2 letters.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('lastName')?.hasError('pattern')">
+        Last Name can only contain letters.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Phone Number</mat-label>
       <input formControlName="phoneNumber" matInput placeholder="Placeholder" />
+      <mat-error *ngIf="memberForm.get('phoneNumber')?.hasError('required')">
+        Phone number is required.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('phoneNumber')?.hasError('pattern')">
+        Phone number can only contain numbers.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Location</mat-label>
       <input formControlName="location" matInput placeholder="Placeholder" />
+      <mat-error *ngIf="memberForm.get('location')?.hasError('required')">
+        Location is required.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('location')?.hasError('minlength')">
+        Location has to be longer than 2 letters.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('location')?.hasError('pattern')">
+        Location can only contain letters.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -36,6 +68,12 @@
         matInput
         placeholder="Placeholder"
       />
+      <mat-error *ngIf="memberForm.get('idCardNumber')?.hasError('required')">
+        ID Card number is required.
+      </mat-error>
+      <mat-error *ngIf="memberForm.get('idCardNumber')?.hasError('pattern')">
+        ID Card number can only contain numbers.
+      </mat-error>
     </mat-form-field>
   </div>
 </form>
