@@ -101,5 +101,3 @@ export abstract class BaseController {
     res.json({ error: message });
   }
 }
-
-// ref: https://github.com/aron123/infrend-2023/blob/master/webshop-k16/server/src/controller/base.controller.ts
