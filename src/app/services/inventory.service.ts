@@ -27,4 +27,8 @@ export class InventoryService {
   rentItem(id: number, body: any) {
     return this.http.put('/api/items/rent/' + id, body);
   }
+
+  returnItem(id: number) {
+    return this.http.put('/api/items/return/' + id, {});
+  }
 }

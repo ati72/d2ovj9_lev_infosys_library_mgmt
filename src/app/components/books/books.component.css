@@ -11,3 +11,8 @@ table {
   max-width: 90%;
   margin: 0 auto;
 }
+
+.button-cell {
+  display: flex;
+  align-items: center;
+}

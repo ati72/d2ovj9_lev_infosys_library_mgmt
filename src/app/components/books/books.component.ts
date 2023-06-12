@@ -109,6 +109,19 @@ export class BooksComponent implements OnInit {
       });
   }
 
+  returnItem(id: number) {
+    this.inventoryService.returnItem(id).subscribe({
+      next: (res) => {
+        this.snackBar.open('Item returned', '', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+        });
+        this.getAllItems();
+      },
+      error: (err) => alert('Error while returning item'),
+    });
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

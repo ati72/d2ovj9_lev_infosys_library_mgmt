@@ -56,7 +56,12 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="editItem(row)" color="primary">
+          <button
+            mat-icon-button
+            (click)="editItem(row)"
+            color="primary"
+            matTooltip="Edit this item"
+          >
             <mat-icon>edit</mat-icon>
           </button>
 
@@ -65,16 +70,27 @@
             (click)="deleteItem(row.id)"
             color="warn"
             *ngIf="row.rentedBy?.id === null"
+            matTooltip="Delete this item"
           >
             <mat-icon>delete</mat-icon>
           </button>
           <button
             *ngIf="row.rentedBy?.id === null"
-            mat-raised-button
+            mat-icon-button
             color="primary"
             (click)="rentItem(row)"
+            matTooltip="Rent this item"
           >
-            Rent
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+          <button
+            *ngIf="row.rentedBy?.id !== null"
+            mat-icon-button
+            color="accent"
+            (click)="returnItem(row.id)"
+            matTooltip="Return this item"
+          >
+            <mat-icon>history</mat-icon>
           </button>
         </td>
       </ng-container>

@@ -14,6 +14,7 @@ export function getRoutes() {
   router.put('/items/:id', libraryInventoryItemController.update);
   router.delete('/items/:id', libraryInventoryItemController.delete);
   router.put('/items/rent/:id', libraryInventoryItemController.rentItem);
+  router.put('/items/return/:id', libraryInventoryItemController.returnItem);
 
   router.get('/members', memberController.getAll);
   router.get('/members/:id', memberController.getOne);

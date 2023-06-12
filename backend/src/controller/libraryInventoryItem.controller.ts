@@ -44,4 +44,37 @@ export class LibraryInventoryItemController extends BaseController {
       this.handleError(res);
     }
   };
+
+  returnItem = async (req: Request, res: Response) => {
+    try {
+      const entity = await this.repository.findOneBy({
+        id: parseInt(req.params.id),
+      });
+
+      if (!entity) {
+        return this.handleError(
+          res,
+          null,
+          404,
+          'No entity found with id: ' + req.params.id
+        );
+      }
+
+      if (entity.status === 'Available') {
+        return this.handleError(
+          res,
+          null,
+          400,
+          'This Item is already available'
+        );
+      }
+
+      entity.rentedBy = null;
+      entity.status = 'Available';
+      const result = await this.repository.save(entity);
+      res.json(result);
+    } catch {
+      this.handleError(res);
+    }
+  };
 }
