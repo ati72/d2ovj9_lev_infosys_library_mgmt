@@ -13,6 +13,7 @@ export function getRoutes() {
   router.post('/items', libraryInventoryItemController.create);
   router.put('/items/:id', libraryInventoryItemController.update);
   router.delete('/items/:id', libraryInventoryItemController.delete);
+  router.put('/items/rent/:id', libraryInventoryItemController.rentItem);
 
   router.get('/members', memberController.getAll);
   router.get('/members/:id', memberController.getOne);

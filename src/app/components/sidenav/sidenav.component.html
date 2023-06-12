@@ -3,7 +3,12 @@
     <h2>Bikini Bottom Library</h2>
   </div>
   <mat-divider></mat-divider>
-  <a mat-list-item routerLink="/home" routerLinkActive="list-item-active">
+  <a
+    mat-list-item
+    routerLink="/home"
+    routerLinkActive="list-item-active"
+    style="margin: 0"
+  >
     <mat-icon>home</mat-icon>
     Home
   </a>
@@ -14,14 +19,5 @@
   <a mat-list-item routerLink="/books" routerLinkActive="list-item-active">
     <mat-icon>book</mat-icon>Books
   </a>
-  <a mat-list-item><mat-icon>edit</mat-icon>link 4</a>
-  <a mat-list-item><mat-icon>edit</mat-icon>link 5</a>
-  <a mat-list-item
-    ><button mat-raised-button color="primary" (click)="openDialog()">
-      Add New Member
-    </button></a
-  >
-  <a mat-list-item
-    ><button mat-raised-button color="primary">Add New Item</button></a
-  >
+  <a mat-list-item><mat-icon>help_outline</mat-icon>Manual</a>
 </mat-nav-list>

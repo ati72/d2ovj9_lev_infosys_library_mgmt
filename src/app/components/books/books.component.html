@@ -15,25 +15,21 @@
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
-      <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>
       </ng-container>
 
-      <!-- Progress Column -->
       <ng-container matColumnDef="author">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Author</th>
         <td mat-cell *matCellDef="let row">{{ row.author }}</td>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
         <td mat-cell *matCellDef="let row">{{ row.title }}</td>
       </ng-container>
 
-      <!-- Fruit Column -->
       <ng-container matColumnDef="mediaType">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
         <td mat-cell *matCellDef="let row">{{ row.mediaType }}</td>
@@ -49,7 +45,6 @@
         <td mat-cell *matCellDef="let row">{{ row.status }}</td>
       </ng-container>
 
-      <!--TODO: EZ lehet szar https://stackoverflow.com/questions/64857392/displaying-nested-array-with-mat-table-->
       <ng-container matColumnDef="rentedBy">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Rented By</th>
         <td mat-cell *matCellDef="let row">
@@ -72,6 +67,14 @@
             *ngIf="row.rentedBy?.id === null"
           >
             <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            *ngIf="row.rentedBy?.id === null"
+            mat-raised-button
+            color="primary"
+            (click)="rentItem(row)"
+          >
+            Rent
           </button>
         </td>
       </ng-container>

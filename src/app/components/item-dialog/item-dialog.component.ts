@@ -112,14 +112,19 @@ export class ItemDialogComponent implements OnInit {
       });
   }
 
-  // TODO: ez update-nél hibát dob, ha nem állítok új dátumot, vlaszeg, mert nem Date, amit át akarok alakítani valamiért
-  formatDate(date: Date): string {
-    if (isNaN(date.getTime())) {
+  formatDate(date: Date | string): string {
+    if (!date) {
+      return '';
+    }
+
+    const formattedDate = new Date(date);
+
+    if (isNaN(formattedDate.getTime())) {
       return '';
     } else {
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const year = date.getFullYear();
+      const month = formattedDate.getMonth() + 1;
+      const day = formattedDate.getDate();
+      const year = formattedDate.getFullYear();
       return (
         year + '/' + ('00' + month).slice(-2) + '/' + ('00' + day).slice(-2)
       );

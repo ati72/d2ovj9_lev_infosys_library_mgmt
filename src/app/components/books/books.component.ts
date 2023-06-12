@@ -7,6 +7,7 @@ import { LibraryInventoryItem } from 'src/app/models/LibraryInventoryItem';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RentDialogComponent } from '../rent-dialog/rent-dialog.component';
 
 @Component({
   selector: 'app-books',
@@ -92,6 +93,20 @@ export class BooksComponent implements OnInit {
         alert('Error while deleting item');
       },
     });
+  }
+
+  rentItem(id: number) {
+    this.dialog
+      .open(RentDialogComponent, {
+        width: '30%',
+        data: id,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'rent') {
+          this.getAllItems();
+        }
+      });
   }
 
   applyFilter(event: Event) {

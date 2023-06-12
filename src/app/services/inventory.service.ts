@@ -21,6 +21,10 @@ export class InventoryService {
   }
 
   delete(id: number) {
-    return this.http.delete<LibraryInventoryItem>('api/items/' + id);
+    return this.http.delete<LibraryInventoryItem>('/api/items/' + id);
+  }
+
+  rentItem(id: number, body: any) {
+    return this.http.put('/api/items/rent/' + id, body);
   }
 }

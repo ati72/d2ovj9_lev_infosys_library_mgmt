@@ -32,6 +32,7 @@ import { BooksComponent } from './components/books/books.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
 import { ItemDialogComponent } from './components/item-dialog/item-dialog.component';
+import { RentDialogComponent } from './components/rent-dialog/rent-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ItemDialogComponent } from './components/item-dialog/item-dialog.compon
     BooksComponent,
     MemberDialogComponent,
     ItemDialogComponent,
+    RentDialogComponent,
   ],
   imports: [
     BrowserModule,

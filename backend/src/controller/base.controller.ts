@@ -48,7 +48,6 @@ export abstract class BaseController {
 
   update = async (req: Request, res: Response) => {
     try {
-      // ez valamiért szar, mert nem update-el, hanem új id-vel újat hoz létre...
       const entity = this.repository.create(req.body as object);
       const entityToUpdate = await this.repository.findOneBy({
         id: entity.id,

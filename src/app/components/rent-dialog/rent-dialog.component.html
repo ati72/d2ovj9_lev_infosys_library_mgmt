@@ -1,0 +1,18 @@
+<form [formGroup]="rentForm">
+  <h2 mat-dialog-title>Rent an item</h2>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" class="hidden-stuff">
+      <mat-label>ID</mat-label>
+      <input formControlName="id" matInput placeholder="ID" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ID</mat-label>
+      <input formControlName="renterId" matInput placeholder="Renter ID" />
+    </mat-form-field>
+  </div>
+</form>
+
+<div mat-dialog-actions [align]="'center'">
+  <button mat-raised-button color="primary" (click)="rentItem()">Rent</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+</div>

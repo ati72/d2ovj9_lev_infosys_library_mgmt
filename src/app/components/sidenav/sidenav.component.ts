@@ -8,12 +8,5 @@ import { MemberDialogComponent } from '../member-dialog/member-dialog.component'
   styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent {
-  constructor(private dialog: MatDialog) {}
-
-  //TODO: EZT KI KELL MAJD VENNI!!
-  openDialog() {
-    this.dialog.open(MemberDialogComponent, {
-      width: '30%',
-    });
-  }
+  constructor() {}
 }
