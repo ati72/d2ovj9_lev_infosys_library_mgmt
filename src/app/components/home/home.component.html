@@ -1,5 +1,46 @@
-<h1>Welcome to Bikini Bottom Library</h1>
-<p>Currently we have {{ members.length }} members.</p>
-<p>We have x items in our inventory.</p>
-<p>x items are currently rented</p>
-<p>Use the sidenav to navigate</p>
+<div class="container">
+  <h1 class="home-title">Welcome to Bikini Bottom Library</h1>
+  <div class="info-card-grid">
+    <div class="info-card">
+      <div class="info-card-left-top">
+        <p class="card-big-number">{{ members.length }}</p>
+      </div>
+      <div class="info-card-left-bottom">Members</div>
+      <div class="info-card-right">
+        <div>
+          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+            >card_membership</mat-icon
+          >
+        </div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-left-top">
+        <p class="card-big-number">{{ items.length }}</p>
+      </div>
+      <div class="info-card-left-bottom">Items in inventory</div>
+      <div class="info-card-right">
+        <div>
+          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+            >book</mat-icon
+          >
+        </div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-left-top">
+        <p class="card-big-number">{{ countRented }}</p>
+      </div>
+      <div class="info-card-left-bottom">Item(s) currently rented</div>
+      <div class="info-card-right">
+        <div>
+          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+            >add_shopping_cart</mat-icon
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>Check out the manual here</p>
+</div>
