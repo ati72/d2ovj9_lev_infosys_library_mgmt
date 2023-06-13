@@ -7,7 +7,18 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>ID</mat-label>
-      <input formControlName="renterId" matInput placeholder="Renter ID" />
+      <input
+        type="text"
+        formControlName="renterId"
+        matInput
+        placeholder="Renter ID"
+      />
+      <mat-error *ngIf="rentForm.get('renterId')?.hasError('invalidInput')">
+        Member has reached the rental limit (6 items).
+      </mat-error>
+      <mat-error *ngIf="rentForm.get('renterId')?.hasError('invalidMember')">
+        No member found with this ID.
+      </mat-error>
     </mat-form-field>
   </div>
 </form>

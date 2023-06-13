@@ -19,9 +19,14 @@ export class LibraryInventoryItemController extends BaseController {
 
   rentItem = async (req: Request, res: Response) => {
     try {
-      const entity = await this.repository.findOneBy({
-        id: parseInt(req.params.id),
+      const entity = await this.repository.findOne({
+        relations: ['rentedBy'],
+        where: {
+          id: parseInt(req.params.id),
+        },
       });
+
+      console.log(entity);
 
       if (!entity) {
         return this.handleError(
@@ -36,18 +41,11 @@ export class LibraryInventoryItemController extends BaseController {
         return this.handleError(res, null, 400, 'This Item is already rented');
       }
 
-      if (entity.rentedBy.rentedItems.length >= 6) {
-        return this.handleError(
-          res,
-          null,
-          400,
-          'Library member reached renting limits!'
-        );
-      }
-
       entity.rentedBy = req.body.renterId;
       entity.status = 'Rented';
+
       const result = await this.repository.save(entity);
+
       res.json(result);
     } catch {
       this.handleError(res);

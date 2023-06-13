@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -72,6 +73,7 @@ import { ManualComponent } from './components/manual/manual.component';
     MatNativeDateModule,
     MatSnackBarModule,
     MatTooltipModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

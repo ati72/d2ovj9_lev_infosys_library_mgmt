@@ -60,7 +60,12 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="
+        itemForm.get('status')?.value === 'Rented' ? 'hidden-stuff' : ''
+      "
+    >
       <mat-label>Status</mat-label>
       <mat-select placeholder="Status" formControlName="status">
         <mat-option value="Available"> Available </mat-option>
