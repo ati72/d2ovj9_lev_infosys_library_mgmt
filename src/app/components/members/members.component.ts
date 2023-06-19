@@ -56,11 +56,11 @@ export class MembersComponent implements OnInit {
   getAllMembers() {
     this.memberService.getAll().subscribe({
       next: (members) => {
-        // ez más mint a vidiben
-        console.log(members);
+        // console.log(members);
         this.dataSource = new MatTableDataSource(members);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        console.log(this.dataSource.data.length);
       },
       error: (err) => console.log(err),
     });
