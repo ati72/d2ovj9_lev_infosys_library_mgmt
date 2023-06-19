@@ -1,48 +1,49 @@
 <div class="container">
-  <h1 class="home-title">Welcome to Bikini Bottom Library</h1>
-  <h1 class="home-title">Our statistics:</h1>
-
-  <div class="info-card-grid">
-    <div class="info-card">
-      <div class="info-card-left-top">
-        <p class="card-big-number">{{ members.length }}</p>
-      </div>
-      <div class="info-card-left-bottom">Members</div>
-      <div class="info-card-right">
-        <div>
-          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
-            >card_membership</mat-icon
-          >
+  <div class="home-half-top">
+    <h1 class="home-title">Welcome to XYZ Library</h1>
+    <h1 class="home-title">Our statistics:</h1>
+  </div>
+  <div class="home-half-bottom">
+    <div class="info-card-grid">
+      <div class="info-card">
+        <div class="info-card-left-top">
+          <p class="card-big-number">{{ members.length }}</p>
+        </div>
+        <div class="info-card-left-bottom">Members</div>
+        <div class="info-card-right">
+          <div>
+            <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+              >card_membership</mat-icon
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-left-top">
-        <p class="card-big-number">{{ items.length }}</p>
-      </div>
-      <div class="info-card-left-bottom">Items in inventory</div>
-      <div class="info-card-right">
-        <div>
-          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
-            >book</mat-icon
-          >
+      <div class="info-card">
+        <div class="info-card-left-top">
+          <p class="card-big-number">{{ items.length }}</p>
+        </div>
+        <div class="info-card-left-bottom">Items in inventory</div>
+        <div class="info-card-right">
+          <div>
+            <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+              >book</mat-icon
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-left-top">
-        <p class="card-big-number">{{ countRented }}</p>
-      </div>
-      <div class="info-card-left-bottom">Item(s) currently rented</div>
-      <div class="info-card-right">
-        <div>
-          <mat-icon style="font-size: 120px; height: 120px; width: 120px"
-            >add_shopping_cart</mat-icon
-          >
+      <div class="info-card">
+        <div class="info-card-left-top">
+          <p class="card-big-number">{{ countRented }}</p>
+        </div>
+        <div class="info-card-left-bottom">Item(s) currently rented</div>
+        <div class="info-card-right">
+          <div>
+            <mat-icon style="font-size: 120px; height: 120px; width: 120px"
+              >add_shopping_cart</mat-icon
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <p>Check out the manual here</p>
 </div>

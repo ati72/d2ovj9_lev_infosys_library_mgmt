@@ -1,5 +1,8 @@
 .container {
   margin: 30px;
+  height: calc(100vh - 128px); /*így nem lóg ki...*/
+  display: flex;
+  flex-direction: column;
 }
 
 .home-title {
@@ -58,4 +61,16 @@
 .card-big-number {
   font-size: 94px;
   font-weight: bold;
+}
+
+.home-half-bottom,
+.home-half-top {
+  flex: 1;
+}
+
+.home-half-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <h1>How to use this application</h1>
+    <h1 style="font-weight: bold">How to use this application</h1>
     <h2>Handling Members</h2>
     <h3>Listing members</h3>
     <p>
@@ -8,13 +8,15 @@
       database should be listed. You can search for members using the Search
       input field or sort them by clicking the table column headers. The table
       is paginated, you can choose how much items per page you want to display.
+      Default is 5, so if you have more, flip the page or change the items per
+      page option.
     </p>
     <h3>Adding a new member</h3>
     <p>
       To add a new member navigate to the members component by clicking the
       members menu on the sidenav panel. Click the Add New Member button and
-      fill in the form in the dialog panel, then click the Save button. The
-      input fields are validated.
+      fill out the form in the dialog panel, then click the Save button. The
+      input fields are validated. Letters should be english characters.
     </p>
     <h3>Deleting and updating members</h3>
     <p>
@@ -30,13 +32,15 @@
       database should be listed. You can search for items using the Search input
       field or sort them by clicking the table column headers. The table is
       paginated, you can choose how much items per page you want to display.
+      Default is 5, so if you have more, flip the page or change the items per
+      page option.
     </p>
     <h3>Adding a new item</h3>
     <p>
       To add a new item navigate to the items component by clicking the Books
-      menu on the sidenav panel. Click the Add New Item button and fill in the
+      menu on the sidenav panel. Click the Add New Item button and fill out the
       form in the dialog panel, then click the Save button. The input fields are
-      validated.
+      validated. Letters should be english characters.
     </p>
     <h3>Deleting and updating items</h3>
     <p>
@@ -50,15 +54,16 @@
     <p>
       Navigate to the Books menu on the sidenav panel. If an item's status is
       "Available" it can be rented. Click on the shopping cart icon to assign it
-      to a member. Type in the ID number of the member and click Rent. The input
-      is validated. If the member already has 6 items rented, he won't be able
-      to rent another one. If the given id is invalid the validator won't let it
-      through.
+      to a member. You can find the member's ID by searching the members list in
+      the Members menu. Type the ID number of the member and click Rent. The
+      input is validated. If the member already has 6 items rented, he won't be
+      able to rent another one. If the given id is invalid the validator won't
+      let it through.
     </p>
     <h3>Returning</h3>
     <p>
       Navigate to the Book menu on the sidenav panel. If an item's status is
-      "Rented" it can be returned. Click the icon to return it.
+      "Rented" it can be returned. Click the return icon to return it.
     </p>
   </div>
 </div>
